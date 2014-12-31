@@ -1,0 +1,52 @@
+#!/bin/bash
+play=y
+
+xpos=0
+ypos=0
+zpos=0
+
+while [ "$play" != "n" ]
+do
+echo "---------------------------------------"
+echo
+echo "You find yourself on a plain, dirt trail"
+echo "there is a cool breeze and the leaves"
+echo "are starting to fall. Your body feels"
+echo "healthy and energetic and you are ready"
+echo "to start your journey."
+echo
+echo "Type Go North, South, East, West to use"
+echo
+echo "---------------------------------------"
+echo
+
+	echo -n "What would you like to do?: " ; read action
+	echo
+	if [ "$action" = "Go South" ]
+	then
+		let ypos--
+		echo ${ypos}
+		
+	elif [ "$action" = "Go North" ]
+	then
+		let ypos++
+	elif [ "$action" = "Go East" ]
+	then
+		let xpos++
+	elif [ "$action" = "Go West" ]
+	then
+		let xpos--
+	elif [ "$action" = "Sleep" ]
+	then
+		cat event/sleep
+		exit=true
+		echo "You are dead."
+		echo
+		echo -n "Would you like to play again?: " ; read play
+		ypos=0
+                xpos=0
+	
+	fi
+cat place/${xpos}${ypos}
+
+done

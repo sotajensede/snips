@@ -1,0 +1,56 @@
+So I've learned how to make little animations and whatnot
+by giving x,y coordinates to the program and it prints
+whatever on the screen there. So then I wanted to figure
+out how to make a "#" move around in a rectangle and this
+is what it looks like. Brain is turning into a vaccuum.
+
+if(cx<(x/2-1)+33 && cy==(y/2-1))
+	cx++;
+else if(cx==(x/2-1)+33)
+	cy++;
+if(cx>(x/2-1) && cy==(y/2+1))
+	cx--;
+else if(cx==(x/2-1))
+	cy--;
+
+This runs through a loop, checks each of these lines
+and executes the indented statement if the "if" is true. 
+The only tricky thing is that as your Y axis goes up, you're actually moving down the screen.
+So basically:
+
+Say,
+
+x=0
+y=0
+
+Step 1:
+
+"as long as x is less than 33 and y is 0, add 1 to x"
+
+so the cursor moves to the right until it's at column 33
+
+Step 2:
+
+"otherwise, if x is 33, add 1 to y"
+
+when it gets to column 33, go down
+
+Step 3:
+
+"if x is greater than 0 and y is 3 subtract 1 from x"
+
+when you get 3 rows down, go left until x is 0 again
+
+Step 4:
+
+"otherwise, if x is 0, subtract 1 from y"
+
+when x gets back to 0 go up again
+
+Repeat infinitely.
+
+But for some reason, the "#" is skipping the bottom right corner
+and that's what I'm trying to fix right now. lol.
+
+
+
